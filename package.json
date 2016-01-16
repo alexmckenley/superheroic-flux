@@ -1,16 +1,16 @@
 {
-  "author": "Josh David Miller",
-  "name": "ngbp",
-  "version": "0.3.2",
-  "homepage": "https://github.com/ngbp/ngbp",
+  "author": "Alex Taylor",
+  "name": "superheroic-flux",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexmckenley/superheroic-flux",
   "licenses": {
     "type": "MIT",
-    "url": "https://raw.github.com/ngbp/ngbp/master/LICENSE"
+    "url": "https://raw.github.com/alexmckenley/superheroic-flux/master/LICENSE"
   },
-  "bugs": "https://github.com/ngbp/ngbp/issues",
+  "bugs": "https://github.com/alexmckenley/superheroic-flux/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ngbp/ngbp.git"
+    "url": "git@github.com:alexmckenley/superheroic-flux.git"
   },
   "dependencies": {},
   "devDependencies": {
