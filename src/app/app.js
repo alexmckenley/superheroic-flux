@@ -1,23 +1,23 @@
 angular.module( 'shf', [
+  'shf.components',
   'templates-app',
   'templates-common',
-  'shf.home',
-  'shf.about',
   'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
-})
-
-.run( function run () {
-})
-
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-    if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | shf' ;
-    }
+  $stateProvider.state( 'shf', {
+    url: '',
+    controller: 'AppCtrl',
+    templateUrl: 'app.tpl.html'
   });
-});
+})
+
+.run( function run ($rootScope) {
+  $rootScope.$on('$stateChangeError', function stateChangeError(event, toState, toParams, fromState, fromParams, error) {
+    $log.error('Error in state transistion: ', error);
+  });
+})
+
+.controller( 'AppCtrl', function AppCtrl () {});
 
