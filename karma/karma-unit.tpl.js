@@ -12,16 +12,15 @@ module.exports = function ( karma ) {
       <% scripts.forEach( function ( file ) { %>'<%= file %>',
       <% }); %>
       'src/**/*.js',
-      'src/**/*.coffee',
     ],
     exclude: [
       'src/assets/**/*.js'
     ],
-    frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-coffee-preprocessor' ],
-    preprocessors: {
-      '**/*.coffee': 'coffee',
-    },
+    frameworks: [ 'jasmine', 'phantomjs-shim' ],
+    plugins: [ 'karma-jasmine',
+        'karma-phantomjs-launcher',
+        'karma-phantomjs-shim'
+    ],
 
     /**
      * How to report, by default.
@@ -55,7 +54,7 @@ module.exports = function ( karma ) {
      * the aesthetic advantage of not launching a browser every time you save.
      */
     browsers: [
-      'Firefox'
+      'PhantomJS'
     ]
   });
 };
