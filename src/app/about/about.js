@@ -1,4 +1,4 @@
-angular.module( 'ngBoilerplate.about', [
+angular.module( 'shf.about', [
   'ui.router',
   'ui.bootstrap'
 ])
