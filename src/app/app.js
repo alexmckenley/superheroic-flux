@@ -1,5 +1,7 @@
 angular.module( 'shf', [
+  'shf.actions',
   'shf.components',
+  'shf.dispatcher',
   'templates-app',
   'templates-common',
   'ui.router'

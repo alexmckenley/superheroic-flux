@@ -61,6 +61,7 @@ module.exports = {
     js: [
       'vendor/angular/angular.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
+      'vendor/alt/dist/alt.js'
     ],
     css: [
     ],
