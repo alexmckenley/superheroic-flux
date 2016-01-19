@@ -1,5 +1,5 @@
 angular.module( 'shf.utils.chat-message-data', [
-    'shf.stores.thread-store'
+    'shf.stores.thread'
 ])
 
 .factory( 'chatMessageDataUtils', function chatMessageDataUtils(threadStore) {

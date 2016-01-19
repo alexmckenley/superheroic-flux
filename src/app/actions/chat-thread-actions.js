@@ -1,6 +1,6 @@
 angular.module( 'shf.actions.chat-thread', [])
 
-.factory( 'chatServerActions', function chatThreadActionsFactory(alt) {
+.factory( 'chatThreadActions', function chatThreadActionsFactory(alt) {
     function ChatThreadActions() {
         this.generateActions('clickThread');
     }

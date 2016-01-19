@@ -1,1 +1,91 @@
-message-store.js
+angular.module( 'shf.stores.message', [
+	'shf.actions.chat-thread',
+	'shf.actions.chat-server',
+	'shf.actions.chat-message',
+	'shf.alt',
+	'shf.stores.thread',
+	'shf.utils.chat-message',
+	'shf.utils.chat-message-data'
+])
+
+.factory( 'messageStore', function messsageStoreFactory(alt, chatMessageActions, chatMessageUtils, chatMessageDataUtils, chatServerActions, chatThreadActions, threadStore) {
+	console.log('messageStore');
+	function MessageStore() {
+		this.bindActions(chatThreadActions);
+		this.bindActions(chatMessageActions);
+		this.bindActions(chatServerActions);
+
+		this.messages = {};
+	}
+
+	MessageStore.prototype = {
+		onCreateMessage: function(text) {
+			var message = chatMessageDataUtils.getCreatedMessageData(text);
+			this.messages[message.id] = message;
+		},
+
+		onReceiveAll: function(rawMessages) {
+			console.log('hello');
+			this._addMessages(rawMessages);
+			this.waitFor([threadStore.dispatchToken]);
+			this._markAllInThreadRead(threadStore.getCurrentID());
+		},
+
+		onClickThread: function() {
+			this.waitFor([threadStore.dispatchToken]);
+			this._markAllInThreadRead(threadStore.getCurrentID());
+		},
+
+		_addMessages: function(rawMessages) {
+			rawMessages.forEach(function(message) {
+				if (!this.messages[message.id]) {
+					this.messages[message.id] = chatMessageUtils.convertRawMessage(
+						message,
+						threadStore.getCurrentID()
+						);
+				}
+			});
+		},
+
+		_markAllInThreadRead: function(threadID) {
+			for (var id in this.messages) {
+				if (this.messages[id].threadID === threadID) {
+					this.messages[id].isRead = true;
+				}
+			}
+		}
+	};
+
+	MessageStore.getAllForThread = function(threadID) {
+		var threadMessages = [];
+		var _messages = this.getState().messages;
+		for (var id in _messages) {
+			if (_messages[id].threadID === threadID) {
+				threadMessages.push(_messages[id]);
+			}
+		}
+		threadMessages.sort(function(a, b) {
+			if (a.date < b.date) {
+				return -1;
+			} else if (a.date > b.date) {
+				return 1;
+			}
+			return 0;
+		});
+		return threadMessages;
+	};
+
+	MessageStore.getAllForCurrentThread = function() {
+		return this.getAllForThread(ThreadStore.getCurrentID());
+	};
+
+	MessageStore.get = function(id) {
+		return this.getState().messages[id];
+	};
+
+	MessageStore.getAll = function() {
+		return this.getState().messages;
+	};
+
+    return alt.createStore(MessageStore, 'MessageStore');
+});

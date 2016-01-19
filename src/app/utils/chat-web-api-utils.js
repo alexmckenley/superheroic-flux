@@ -1,6 +1,6 @@
 angular.module( 'shf.utils.chat-web-api', [
-    'shf.actions.chat-server',
-    ])
+    'shf.actions.chat-server'
+])
 
 .factory( 'chatWebApiUtils', function chatWebApiUtils(chatServerActions) {
     var util = {
@@ -35,7 +35,7 @@ angular.module( 'shf.utils.chat-web-api', [
 
         // simulate success callback
         setTimeout(function() {
-            chatServerActions.receiveCreatedMessage(createdMessage);
+            chatServerActions.createMessage(createdMessage);
         }, 0);
     }
 

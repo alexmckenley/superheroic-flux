@@ -16,14 +16,14 @@ angular.module( 'shf.stores.unread-thread', [
 			this.wait();
 		},
 
-		onReceiveRawMessages: function(rawMessages) {
+		onReceiveAll: function(rawMessages) {
 			this.wait();
 		},
 
 		wait: function() {
 			this.waitFor([
-				ThreadStore.dispatchToken,
-				MessageStore.dispatchToken
+				threadStore.dispatchToken,
+				messageStore.dispatchToken
 			]);
 		}
 	};
