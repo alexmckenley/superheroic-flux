@@ -1,11 +1,11 @@
-angular.module( 'shf.stores.thread', [
+angular.module('shf.stores.thread', [
     'shf.actions.chat-server',
     'shf.actions.chat-thread',
     'shf.alt',
     'shf.utils.chat-message'
 ])
 
-.factory( 'threadStore', function threadStoreFactory(alt, chatMessageUtils, chatServerActions, chatThreadActions) {
+.factory('threadStore', function threadStoreFactory(alt, chatMessageUtils, chatServerActions, chatThreadActions) {
     function ThreadStore() {
         this.bindActions(chatThreadActions);
         this.bindActions(chatServerActions);

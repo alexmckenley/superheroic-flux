@@ -1,4 +1,4 @@
-angular.module( 'shf.components.thread-section', [
+angular.module('shf.components.thread-section', [
     'shf.stores.message',
     'shf.stores.thread',
     'shf.stores.unread-thread'

@@ -1,4 +1,4 @@
-angular.module( 'shf.stores.message', [
+angular.module('shf.stores.message', [
     'shf.actions.chat-thread',
     'shf.actions.chat-server',
     'shf.actions.chat-message',
@@ -8,7 +8,7 @@ angular.module( 'shf.stores.message', [
     'shf.utils.chat-message-data'
 ])
 
-.factory( 'messageStore', function messsageStoreFactory(alt, chatMessageActions, chatMessageUtils, chatMessageDataUtils, chatServerActions, chatThreadActions, threadStore) {
+.factory('messageStore', function messsageStoreFactory(alt, chatMessageActions, chatMessageUtils, chatMessageDataUtils, chatServerActions, chatThreadActions, threadStore) {
     function MessageStore() {
         this.bindActions(chatThreadActions);
         this.bindActions(chatMessageActions);

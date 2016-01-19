@@ -1,6 +1,6 @@
-angular.module( 'shf.utils.chat-message', [])
+angular.module('shf.utils.chat-message', [])
 
-.factory( 'chatMessageUtils', function chatMessageUtils() {
+.factory('chatMessageUtils', function chatMessageUtils() {
     var util = {
         convertRawMessage: convertRawMessage
     };

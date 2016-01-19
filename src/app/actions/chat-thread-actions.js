@@ -1,4 +1,4 @@
-angular.module( 'shf.actions.chat-thread', [])
+angular.module('shf.actions.chat-thread', [])
 
 .factory('chatThreadActions', function chatThreadActionsFactory(alt) {
     function ChatThreadActions() {

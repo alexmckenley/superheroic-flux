@@ -1,8 +1,8 @@
-angular.module( 'shf.utils.chat-message-data', [
+angular.module('shf.utils.chat-message-data', [
     'shf.stores.thread'
 ])
 
-.factory( 'chatMessageDataUtils', function chatMessageDataUtils(threadStore) {
+.factory('chatMessageDataUtils', function chatMessageDataUtils(threadStore) {
     var util = {
         getCreatedMessageData: getCreatedMessageData 
     };

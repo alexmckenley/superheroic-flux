@@ -1,4 +1,4 @@
-angular.module( 'shf.actions.chat-message', [])
+angular.module('shf.actions.chat-message', [])
 
 .factory('chatMessageActions', function chatMessageActionsFactory(alt, chatWebApiUtils, chatMessageDataUtils) {
     function ChatMessageActions() {}

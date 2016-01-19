@@ -1,6 +1,6 @@
-angular.module( 'shf.chat-example-data', [])
+angular.module('shf.chat-example-data', [])
 
-.factory( 'chatExampleData', function chatExampleData() {
+.factory('chatExampleData', function chatExampleData() {
     return {
         init: function() {
             localStorage.clear();
