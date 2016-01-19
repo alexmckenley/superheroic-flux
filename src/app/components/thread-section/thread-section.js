@@ -4,15 +4,16 @@ angular.module( 'shf.components.thread-section', [
     'shf.stores.unread-thread'
 ])
 
-.directive( 'threadSection', function threadSectionDirective() {
-  return {
-    controller: 'ThreadSectionController as ctrl',
-    templateUrl: 'components/thread-section/thread-section.tpl.html'
-  };
+.directive('threadSection', function threadSectionDirective() {
+    return {
+        controller: 'ThreadSectionController as ctrl',
+        templateUrl: 'components/thread-section/thread-section.tpl.html'
+    };
 })
 
 .controller('ThreadSectionController', function(messageStore, threadStore, unreadThreadStore) {
     var ctrl = this;
+
 
     messageStore.listen(getStateFromStores);
     threadStore.listen(getStateFromStores);
@@ -24,4 +25,5 @@ angular.module( 'shf.components.thread-section', [
         ctrl.unreadCount = unreadThreadStore.getCount();
     }
 
+    getStateFromStores();
 });

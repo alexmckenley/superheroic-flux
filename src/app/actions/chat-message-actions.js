@@ -1,14 +1,11 @@
 angular.module( 'shf.actions.chat-message', [])
 
-.factory( 'chatMessageActions', function chatMessageActionsFactory(alt, chatWebApiUtils, chatMessageDataUtils) {
-    function ChatMessageActions() {
-        this.generateActions('createMessage', 'receiveAll');
-    }
+.factory('chatMessageActions', function chatMessageActionsFactory(alt, chatWebApiUtils, chatMessageDataUtils) {
+    function ChatMessageActions() {}
 
     ChatMessageActions.prototype = {
         createMessage: function(text) {
             return function(dispatch) {
-                console.log('createMessageAction');
                 dispatch(text);
 
                 var message = chatMessageDataUtils.getCreatedMessageData(text);

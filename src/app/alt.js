@@ -1,7 +1,5 @@
-angular.module( 'shf.alt', [])
+angular.module('shf.alt', [])
 
-.factory( 'alt', function alt() {
-	var a = new Alt();
-	Alt.debug('alt', a);
-	return a;
+.factory('alt', function alt() {
+    return new Alt();
 });

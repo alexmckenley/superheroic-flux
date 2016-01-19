@@ -15,27 +15,29 @@ angular.module( 'shf.stores.thread', [
     }
 
     ThreadStore.prototype = {
+        constructor: ThreadStore,
         onClickThread: function (threadID) {
             this.currentID = threadID;
             this.threads[this.currentID].lastMessage.isRead = true;
         },
 
         onReceiveAll: function(rawMessages) {
-            console.log('onReceiveAll');
             this._init(rawMessages);
         },
 
         _init: function(rawMessages) {
+            var _this = this;
+
             rawMessages.forEach(function(message) {
                 var threadID = message.threadID;
-                var thread = this.threads[threadID];
+                var thread = _this.threads[threadID];
                 if (thread && thread.lastTimestamp > message.timestamp) {
                     return;
                 }
-                this.threads[threadID] = {
+                _this.threads[threadID] = {
                     id: threadID,
                     name: message.threadName,
-                    lastMessage: chatMessageUtils.convertRawMessage(message, this.currentID)
+                    lastMessage: chatMessageUtils.convertRawMessage(message, _this.currentID)
                 };
             });
 
@@ -56,7 +58,7 @@ angular.module( 'shf.stores.thread', [
         return this.getState().threads;
     };
 
-    ThreadStore.getAllChronoi = function() {
+    ThreadStore.getAllChrono = function() {
         var threads = this.getState().threads;
         var orderedThreads = [];
         for (var id in threads) {

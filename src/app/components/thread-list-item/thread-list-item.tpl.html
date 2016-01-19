@@ -1,5 +1,5 @@
 <li class="thread-list-item active" >
-    <h5 class="thread-name" >{{ ctrl.thread.name }}</h5>
-    <div class="thread-time" >{{ ctrl.thread.lastMessage.date.toLocaleTimeString() }}</div>
-    <div class="thread-last-message" >{{ ctrl.thread.lastMessage.text }}</div>
+    <h5 class="thread-name" >{{ ctrl.getThread().name }}</h5>
+    <div class="thread-time" >{{ ctrl.getThread().lastMessage.date.toLocaleTimeString() }}</div>
+    <div class="thread-last-message" >{{ ctrl.getThread().lastMessage.text }}</div>
 </li>

@@ -35,7 +35,7 @@ angular.module( 'shf.utils.chat-web-api', [
 
         // simulate success callback
         setTimeout(function() {
-            chatServerActions.createMessage(createdMessage);
+            chatServerActions.receiveCreatedMessage(createdMessage);
         }, 0);
     }
 
