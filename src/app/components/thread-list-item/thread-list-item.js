@@ -1,4 +1,6 @@
-angular.module('shf.components.thread-list-item', [])
+angular.module('shf.components.thread-list-item', [
+	'shf.actions.chat-thread'
+])
 
 .directive('threadListItem', function threadListItemDirective() {
   return {
@@ -12,4 +14,12 @@ angular.module('shf.components.thread-list-item', [])
   };
 })
 
-.controller('ThreadListItemCtrl', function() {});
+.controller('ThreadListItemCtrl', function(chatThreadActions) {
+	var ctrl = this;
+
+	ctrl.selectThread = selectThread;
+
+	function selectThread() {
+		chatThreadActions.clickThread(this.getThread().id);
+	}
+});

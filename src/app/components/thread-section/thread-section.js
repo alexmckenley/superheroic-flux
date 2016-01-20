@@ -21,7 +21,7 @@ angular.module('shf.components.thread-section', [
 
     function getStateFromStores() {
         ctrl.threads = threadStore.getAllChrono();
-        ctrl.currentThreadID = threadStore.getCurrentID();
+        ctrl.currentThreadId = threadStore.getCurrentID();
         ctrl.unreadCount = unreadThreadStore.getCount();
     }
 
