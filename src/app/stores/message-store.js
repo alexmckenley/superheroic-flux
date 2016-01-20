@@ -25,7 +25,6 @@ angular.module('shf.stores.message', [
         },
 
         onReceiveAll: function(rawMessages) {
-            console.log(rawMessages);
             this._addMessages(rawMessages);
             this.waitFor([threadStore.dispatchToken]);
             this._markAllInThreadRead(threadStore.getCurrentID());
@@ -78,7 +77,7 @@ angular.module('shf.stores.message', [
     };
 
     MessageStore.getAllForCurrentThread = function() {
-        return this.getAllForThread(ThreadStore.getCurrentID());
+        return this.getAllForThread(threadStore.getCurrentID());
     };
 
     MessageStore.get = function(id) {

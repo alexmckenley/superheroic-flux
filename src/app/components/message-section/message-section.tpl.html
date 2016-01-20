@@ -1,7 +1,7 @@
 <div class="message-section">
-    <h3 class="message-thread-heading">Bill and Brian</h3>
+    <h3 class="message-thread-heading">{{ ctrl.thread.name }}</h3>
     <ul class="message-list">
-        <message-list-item></message-list-item>
+        <message-list-item message="message" ng-repeat="message in ctrl.messages"></message-list-item>
     </ul>
     <textarea class="message-composer" name="message"></textarea>
 </div>
