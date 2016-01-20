@@ -1,4 +1,5 @@
 angular.module('shf.components.message-section', [
+    'scroll-bottom',
     'shf.stores.message',
     'shf.stores.thread'
 ])
