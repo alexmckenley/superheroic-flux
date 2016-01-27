@@ -14,16 +14,21 @@ angular.module('shf.components.message-composer', [
     var ctrl = this,
         ENTER_KEY_CODE = 13;
         var count = 0;
+        var test;
 
     ctrl.handleKeypress = handleKeypress;
 
-    setInterval(function() {
-        count++;
-        chatMessageActions.createMessage(count);
-    }, 0);
-
     function handleKeypress(event) {
         if (event.keyCode === ENTER_KEY_CODE && ctrl.text) {
+            if (test) {
+                window.clearInterval(test);
+                test = false;
+                return;
+            }
+            test = setInterval(function() {
+                count++;
+                chatMessageActions.createMessage(count);
+            }, 0);
             event.preventDefault();
             chatMessageActions.createMessage(ctrl.text);
 

@@ -21,6 +21,11 @@ angular.module('shf.stores.message', [
         constructor: MessageStore,
         onCreateMessage: function(text) {
             var message = chatMessageDataUtils.getCreatedMessageData(text);
+            for (var prop in this.messages) {
+                delete this.messages[prop];
+                break;
+            }
+
             this.messages[message.id] = message;
         },
 
