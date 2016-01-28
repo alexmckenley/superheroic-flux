@@ -10,15 +10,16 @@ angular.module('shf.components.message-composer', [
     };
 })
 
-.controller('MessageComposerCtrl', function(chatMessageActions) {
+.controller('MessageComposerCtrl', function($interval, chatMessageActions) {
     var ctrl = this,
         ENTER_KEY_CODE = 13;
         var count = 0;
 
-    setInterval(function() {
+    $interval(function() {
         count++;
         chatMessageActions.createMessage(count);
-    }, 0);
+    }, 10);
+
     ctrl.handleKeypress = handleKeypress;
 
     function handleKeypress(event) {
