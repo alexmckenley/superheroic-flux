@@ -10,6 +10,11 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+html {
+  height: 100%;
+  background-color: #FFF5F5;
+}
+
 .chatapp {
   font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
   max-width: 760px;
@@ -18,7 +23,7 @@
 }
 
 .message-list, .thread-list {
-  border: 1px solid #ccf;
+  border: 1px solid #F5B9B9;
   font-size: 16px;
   height: 400px;
   margin: 0;
@@ -53,30 +58,26 @@
 }
 
 .thread-list:hover .thread-list-item:hover {
-  background-color: #f8f8ff;
-}
-
-.thread-list:hover .thread-list-item {
-  background-color: #fff;
+  background-color: #FFFEFE;
 }
 
 .thread-list-item.active,
 .thread-list:hover .thread-list-item.active,
 .thread-list:hover .thread-list-item.active:hover {
-  background-color: #efefff;
+  background-color: #F7E4E4;
   cursor: default;
 }
 
 .message-author-name,
 .thread-name {
-  color: #66c;
+  color: #C66;
   float: left;
   font-size: 13px;
   margin: 0;
 }
 
 .message-time, .thread-time {
-  color: #aad;
+  color: #DAA;
   float: right;
   font-size: 12px;
 }
