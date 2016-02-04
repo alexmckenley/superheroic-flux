@@ -10,6 +10,7 @@ angular.module('shf.stores.perf', [
         this.perfAverage = null;
         this.perfLast = null;
         this._lastMessage = null;
+        this.totalMessages = 0;
     }
 
     PerfStore.prototype = {
@@ -23,6 +24,8 @@ angular.module('shf.stores.perf', [
             }
 
             this.lastMessage = currentTime;
+
+            this.totalMessages += 1;
 
             this.perfAverage = this.perfAverage ? ((this.perfAverage + millis) / 2) : millis;
             this.perfLast = millis;
@@ -39,6 +42,10 @@ angular.module('shf.stores.perf', [
 
     PerfStore.getAverageMessagesPerSecond = function() {
         return 1000 / this.getState().perfAverage;
+    };
+
+    PerfStore.getTotalMessages = function() {
+        return this.getState().totalMessages;
     };
 
     return alt.createStore(PerfStore, 'PerfStore');
