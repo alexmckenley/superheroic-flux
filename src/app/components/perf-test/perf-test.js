@@ -11,8 +11,10 @@ angular.module('shf.components.perf-test', [
     };
 })
 
-.controller('PerfTestCtrl', function(perfStore) {
+.controller('PerfTestCtrl', function($interval, $scope, chatMessageActions, perfStore) {
     var ctrl = this;
+    var count = 0;
+    var interval;
 
     init();
 
@@ -20,6 +22,15 @@ angular.module('shf.components.perf-test', [
         perfStore.listen(getStateFromStores);
 
         getStateFromStores();
+
+        interval = $interval(function() {
+            count++;
+            chatMessageActions.createMessage(count);
+        }, 10);
+
+        $scope.$on('$destroy', function() {
+            $interval.cancel(interval);
+        });
     }
 
     function getStateFromStores() {
